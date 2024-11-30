@@ -3,7 +3,8 @@ import React from 'react'
 import SearchFormReset from './SearchFormReset';
 import { Search } from 'lucide-react';
 
-const SearchForm = ({query}) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const SearchForm = ({query} : {query: any}) => {
     console.log('Search params: ', query);    
     console.log('Query: ', query);
   return (

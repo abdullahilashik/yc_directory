@@ -6,8 +6,8 @@ import React from 'react'
 import { Button } from './ui/button'
 
 // export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
-
-const StartupCard = ({post}) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const StartupCard = ({post} : {post: any}) => {
   return (
     <>
         <li className="startup-card group">
