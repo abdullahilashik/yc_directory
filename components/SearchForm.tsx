@@ -3,7 +3,7 @@ import React from 'react'
 import SearchFormReset from './SearchFormReset';
 import { Search } from 'lucide-react';
 
-const SearchForm = ({query} : {query: Promise<{query?: string}>}) => {
+const SearchForm = ({query}) => {
     console.log('Search params: ', query);    
     console.log('Query: ', query);
   return (
