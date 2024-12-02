@@ -9,7 +9,7 @@ const RootLayoutInsider = ({children} :
   return (
     <main className='font-work-sans'>
         <Navbar />
-        {children}
+        {children}        
     </main>
   )
 }

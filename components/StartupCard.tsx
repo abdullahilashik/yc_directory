@@ -4,10 +4,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Button } from './ui/button'
+import { Author, Startup } from '@/sanity/types'
 
-// export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
+export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const StartupCard = ({post} : {post: any}) => {
+const StartupCard = ({post} : {post: StartupTypeCard}) => {
   return (
     <>
         <li className="startup-card group">
@@ -33,7 +34,7 @@ const StartupCard = ({post} : {post: any}) => {
                 </div>
                 <Link href={`/user/${post?.author?._id}`}>
                     <Image 
-                        src={'https://placeholder.co/48x48'}
+                        src={post?.author?.image || 'https://placeholder.co/48x48'}
                         width={48}
                         height={48}
                         alt='author'
