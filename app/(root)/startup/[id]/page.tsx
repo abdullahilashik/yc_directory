@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { formateDate } from '@/lib/utils';
 import { sanityFetch } from '@/sanity/lib/live';
 import { STARTUP_BY_ID_QUERY } from '@/sanity/lib/queries';
@@ -31,12 +32,12 @@ const StartupDetailsPage =  async ({params} : {params: Promise<{id: string}>}) =
   return (
     <>
         <section className='pink_container !min-h-[230px]'>
-            <p className='tag'>{formateDate(startup?._createdAt)}</p>
+            { startup?._createdAt && <p className='tag'>{formateDate(startup?._createdAt)}</p> } 
             <h1 className="heading">{startup?.title}</h1>
             <p className="sub-heading !max-w-5xl">{startup?.description}</p>
         </section>
-        <section className="section_container">
-            <img src={startup?.image} alt={startup?.title} className='w-full h-auto rounded-xl' />
+        <section className="section_container">            
+            <img src={startup?.image || 'https://placeholder.co/1200x720'} alt={startup?.title || ''} className='w-full h-auto rounded-xl' />
             <div className="space-y-5 mt-10 max-w-4xl mx-auto">
                 <div className="flex-between gap-5">
                     <Link href={`/user/${startup?.author?._id}`} className='flex items-center gap-2'>
@@ -67,7 +68,7 @@ const StartupDetailsPage =  async ({params} : {params: Promise<{id: string}>}) =
             </div>
             {/* TODO: editors pick */}
             <Suspense fallback={<Skeleton className='view_skeleton' />}>
-                <View id={startup?._id} />
+                <View id={startup?._id || ''} />
             </Suspense>
         </section>
         <section>

@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import SearchForm from '@/components/SearchForm'
-import StartupCard, { StartupTypeCard } from '@/components/StartupCard';
+import StartupCard from '@/components/StartupCard';
 import { sanityFetch, SanityLive } from '@/sanity/lib/live';
 import { STARTUP_QUERIES } from '@/sanity/lib/queries';
 import React from 'react'
@@ -42,7 +43,7 @@ const HomePage = async ({searchParams} : {searchParams : Promise<{query?: string
         </p>
         <ul className="mt-7 card_grid">
           {posts?.length > 0 ? (
-            posts.map((post : StartupTypeCard) => (
+            posts.map((post : any) => (
               <StartupCard key={post?._id} post={post} />
             ))
           ) : (
