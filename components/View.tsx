@@ -5,9 +5,12 @@ import { STARTUP_VIEWS_BY_ID_QUERY } from "@/sanity/lib/queries";
 import { writeClient } from "@/sanity/lib/write-client";
 import { unstable_after as after } from "next/server";
 const View = async ({ id }: { id: string }) => {
-  const { views: totalViews } = await client
+  const data = await client
     .withConfig({ useCdn: false })
     .fetch(STARTUP_VIEWS_BY_ID_QUERY, { id });
+    console.log('Data: ', data);
+  
+  const totalViews : number = data?.views || 0;
 
   after(async () => {
     await writeClient
