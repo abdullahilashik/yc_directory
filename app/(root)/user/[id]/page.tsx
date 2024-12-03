@@ -27,8 +27,8 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
 
           <Image
-            src={user.image}
-            alt={user.name}
+            src={user?.image || 'https://placeholder.com/48x48'}
+            alt={user?.name || ''}
             width={220}
             height={220}
             className="profile_image"
