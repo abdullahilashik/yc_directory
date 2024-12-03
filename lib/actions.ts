@@ -23,7 +23,7 @@ export const createNewStartupAction = async(values: z.infer<typeof StartupCreate
             image: values.image_url,
             author: {
                 _type: "reference",
-                _ref: session?.id
+                _ref: session?.user?.id
             },
             slug: {
                 _type: slug,
